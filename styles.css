@@ -1,10 +1,8 @@
 canvas {
     overflow: hidden;
-    z-index: -9999;
 }
 
 body {
-    z-index: 9999;
     padding: 0; 
     margin: 0;
     background-color: red;
