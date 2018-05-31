@@ -1,13 +1,14 @@
 var s;
 var scl = 20;
 var food;
-var counter = 1;
+var snakescore = 0;
 
 function setup() {
   createCanvas(innerWidth, innerHeight - 50);
   s = new Snake();
   frameRate(10);
   pickLocation();
+
 }
 
 function pickLocation() {
@@ -22,13 +23,14 @@ function draw() {
 
   if(s.eat(food)) {
     pickLocation();  
-    console.log("Got it")  
+    snakescore++;
   }
   s.update();
   s.show();
 
   fill(255, 0, 0);
   rect(food.x, food.y, scl, scl);
+  document.getElementById('score').innerHTML = `Your score: ${snakescore}`;
 }
 
 function keyPressed () {

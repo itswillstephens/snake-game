@@ -14,7 +14,7 @@ function Snake() {
     this.eat = function(pos) {
         var d = dist(this.x, this.y, pos.x, pos.y);
 
-        if(d < 1) {
+        if(d < 10) {
             this.total++;
             return true;
         } else {
@@ -34,8 +34,20 @@ function Snake() {
         this.x = this.x + this.xspeed*scl;
         this.y = this.y + this.yspeed*scl;
 
-        this.x = constrain(this.x, 0, width - scl);
-        this.y = constrain(this.y, 0, height - scl);
+        // this.x = constrain(this.x, 0, width - scl);
+        // this.y = constrain(this.y, 0, height - scl);
+
+        if(this.x > width + 30) {
+            this.x = 0;
+        } else if(this.x < -30) {
+            this.x = width;
+        }
+
+        if(this.y > height + 30) {
+            this.y = 0;
+        } else if(this.y < -30) {
+            this.y = height;
+        } 
 
     }
   
